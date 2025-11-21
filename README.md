@@ -2,7 +2,7 @@
 
 A production-ready RAG-based legal document analysis system with **premium glassmorphism UI**, self-correction capabilities, and automated workflow. Built using FastAPI, Streamlit, LangChain, and Llama 3.3 via Groq.
 
-## 🎯 Overview
+##  Overview
 
 This system provides comprehensive analysis of legal documents through:
 - **PDF Extraction** with intelligent text cleaning
@@ -13,25 +13,13 @@ This system provides comprehensive analysis of legal documents through:
 - **Structured JSON Reports** with complete analysis results
 - **Premium Dark-Theme Glassmorphism UI** with neon accents and animations
 
-## ✨ New Features
-
-### 🎨 Premium UI/UX
-- **Cinematic gradient hero banner** with pulsing animation
-- **Floating glass navigation sidebar** with blur effects
-- **Neon-accented section headers** with glowing borders
-- **Animated gradient progress bars** with shimmer effects
-- **Glowing PASS/FAIL badges** with pulsing animations
-- **VS Code-style JSON viewer** with syntax highlighting
-- **Glassmorphism cards** with frosted-glass effects
-- **Responsive layouts** with improved spacing
-
 ### 🔄 Automated Workflow
 - **Auto-build vector index** after PDF extraction (no manual step)
 - **Simultaneous analysis results** - all three analyses can be open at once
 - **Download JSON buttons** for each analysis type
 - **Streamlined 3-step process**: Upload → Extract → Analyze
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐
@@ -56,7 +44,7 @@ This system provides comprehensive analysis of legal documents through:
 └─────────────────────────────────────┘
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 mini-legal-analyst/
@@ -94,7 +82,7 @@ mini-legal-analyst/
 └── README.md                    # This file
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -146,17 +134,17 @@ Modify `backend/app/config.py` for:
 2. **Extract Text** → Click "Extract Text" button
 3. **Auto Index** → Vector index builds automatically
 4. **Run Analyses** → Click any/all analysis buttons:
-   - 📊 Generate Summary
-   - 📑 Extract Sections
-   - ✅ Check Rules
+   -  Generate Summary
+   -  Extract Sections
+   -  Check Rules
 5. **View Results** → All results appear in separate glass cards
 6. **Download JSON** → Export each analysis as JSON
 
 **Key Features:**
-- ✅ No manual index building required
-- ✅ All three analyses can be open simultaneously
-- ✅ Download JSON for each analysis type
-- ✅ Results persist when running other analyses
+-  No manual index building required
+-  All three analyses can be open simultaneously
+-  Download JSON for each analysis type
+-  Results persist when running other analyses
 
 ### Full Report Mode
 
@@ -167,7 +155,7 @@ Modify `backend/app/config.py` for:
 5. View comprehensive results
 6. Download complete JSON report
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### POST /api/extract
 Extract text from PDF file.
@@ -217,7 +205,7 @@ The system extracts information for 6 legal categories:
 5. **Obligations** - Duties and responsibilities
 6. **Record Keeping** - Documentation requirements
 
-## ✅ Legal Rules Validated
+##  Legal Rules Validated
 
 The system checks compliance with 6 standard legal document rules:
 
@@ -228,7 +216,7 @@ The system checks compliance with 6 standard legal document rules:
 5. **Payment/Entitlement Structure** - Describes payment details
 6. **Reporting/Record-keeping** - Specifies documentation requirements
 
-## 🧠 Self-Correction Agent
+##  Self-Correction Agent
 
 The system includes an intelligent self-correction agent that:
 - Validates extraction completeness
@@ -238,7 +226,7 @@ The system includes an intelligent self-correction agent that:
 - Iterates up to 2 times per category
 - Ensures high-quality results
 
-## 📊 Output Format
+##  Output Format
 
 The system generates structured JSON reports with syntax highlighting:
 
@@ -270,7 +258,7 @@ The system generates structured JSON reports with syntax highlighting:
 }
 ```
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Backend:** FastAPI
 - **Frontend:** Streamlit with custom CSS
@@ -281,15 +269,7 @@ The system generates structured JSON reports with syntax highlighting:
 - **LLM:** Llama 3.3 70B (Groq API)
 - **Validation:** Pydantic v2
 
-## 🎨 UI Features
-
-### Design System
-- **Colors:** Blue (#4a6cf7) → Purple (#8f6bff) → Pink (#ff6b9d)
-- **Background:** Radial gradient dark theme
-- **Cards:** Frosted glass with backdrop blur
-- **Animations:** Pulse, shimmer, glow effects
-
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -311,14 +291,14 @@ The system generates structured JSON reports with syntax highlighting:
 - `update_api_key.py` - Update `.env` files
 - `verify_env.py` - Check `.env` encoding
 
-## 📈 Performance
+##  Performance
 
 - **PDF Extraction:** ~1-2 seconds/page
 - **Index Building:** ~10-30 seconds (automatic)
 - **RAG Extraction:** ~5-10 seconds/category
 - **Full Report:** ~2-5 minutes
 
-## 📝 Scripts Reference
+##  Scripts Reference
 
 | Script | Purpose |
 |--------|---------|
@@ -326,7 +306,7 @@ The system generates structured JSON reports with syntax highlighting:
 | `stop_all.ps1` | Stop all processes |
 | `restart_services.ps1` | Restart services |
 
-## 📚 Documentation
+##  Documentation
 
 - [INSTALL.md](INSTALL.md) - Installation guide
 - [QUICKSTART.md](QUICKSTART.md) - Quick start
@@ -337,3 +317,4 @@ The system generates structured JSON reports with syntax highlighting:
 **Built with ⚖️ for legal document analysis**
 
 **Version:** 2.0 - Premium Glassmorphism Edition
+
