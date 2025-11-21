@@ -1,109 +1,79 @@
-# Mini Legal Analyst - Quick Start Guide
+# Quick Start Guide
 
-## Quick Setup
+## 🚀 Starting the Application
 
-1. **Activate Virtual Environment:**
-   ```bash
-   .\venv\Scripts\activate
-   ```
+### Option 1: Start Everything at Once (Recommended)
+Run this single command to start both backend and frontend:
 
-2. **Install Dependencies (if not already done):**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure API Key:**
-   - Ensure `.env` file exists with your Groq API key
-   - The key is already configured if you followed the setup
-
-## Running the System
-
-### Option 1: Run Both Services (Recommended)
-
-**Terminal 1 - Start Backend:**
-```bash
-cd backend
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```powershell
+.\start_all.ps1
 ```
 
-**Terminal 2 - Start Frontend:**
-```bash
-streamlit run frontend/streamlit_app.py
-```
+This will:
+- Open two new PowerShell windows (one for backend, one for frontend)
+- Start the backend API on http://localhost:8000
+- Start the frontend UI on http://localhost:8501
+- Automatically open your browser to the Streamlit interface
 
-### Option 2: Use PowerShell Scripts
+### Option 2: Start Services Individually
+If you prefer to start services separately:
 
-**Start Backend:**
+**Backend:**
 ```powershell
 .\start_backend.ps1
 ```
 
-**Start Frontend:**
+**Frontend:**
 ```powershell
 .\start_frontend.ps1
 ```
 
-## Access Points
+## 🛑 Stopping the Application
 
-- **Frontend UI:** http://localhost:8501
-- **Backend API:** http://localhost:8000
-- **API Docs:** http://localhost:8000/docs
-
-## First Time Usage
-
-1. Open the Streamlit UI at http://localhost:8501
-2. Select "Full Report" mode in the sidebar
-3. Upload a PDF document (e.g., Universal Credit Act 2025)
-4. Click "Generate Full Report"
-5. Wait 2-5 minutes for processing
-6. View results and download JSON report
-
-## Troubleshooting
-
-**If backend fails to start:**
-- Check that port 8000 is not in use
-- Verify `.env` file contains GROQ_API_KEY
-- Check virtual environment is activated
-
-**If frontend fails to start:**
-- Check that port 8501 is not in use
-- Ensure backend is running first
-- Verify all dependencies are installed
-
-**If analysis fails:**
-- Check Groq API key is valid
-- Ensure PDF is readable (not scanned image)
-- Check backend logs for errors
-
-## Testing the System
-
-### Quick Test
-1. Use a small PDF (5-10 pages)
-2. Run "Quick Analysis" mode
-3. Test each step individually
-
-### Full Test
-1. Use a complete legal document
-2. Run "Full Report" mode
-3. Verify all 6 categories are extracted
-4. Check all 6 rules are validated
-5. Download and inspect JSON report
-
-## System Architecture
-
-```
-User → Streamlit UI → FastAPI → Core Modules → Groq API
-                                    ↓
-                              FAISS Vector Store
+### Option 1: Use the Stop Script
+```powershell
+.\stop_all.ps1
 ```
 
-## Next Steps
+### Option 2: Manual Stop
+- Press `CTRL+C` in each PowerShell window
+- Or simply close the PowerShell windows
 
-- Review the generated JSON reports in `data/reports/`
-- Explore the API documentation at http://localhost:8000/docs
-- Customize settings in `backend/app/config.py`
-- Add your own legal documents for analysis
+## 📍 Service URLs
 
----
+- **Frontend UI**: http://localhost:8501
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **API Redoc**: http://localhost:8000/redoc
 
-For detailed documentation, see README.md
+## ⚙️ Prerequisites
+
+Before running, ensure:
+1. Virtual environment is created: `python -m venv venv`
+2. Dependencies are installed: `pip install -r requirements.txt`
+3. `.env` file exists with your `GROQ_API_KEY`
+
+## 📝 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `start_all.ps1` | Start both backend and frontend simultaneously |
+| `start_backend.ps1` | Start only the backend API server |
+| `start_frontend.ps1` | Start only the frontend Streamlit UI |
+| `stop_all.ps1` | Stop all running services |
+
+## 🔧 Troubleshooting
+
+**Port already in use?**
+- Run `.\stop_all.ps1` to stop any existing services
+- Or manually kill processes using ports 8000 and 8501
+
+**Virtual environment not activating?**
+- Ensure you're running PowerShell (not CMD)
+- Check execution policy: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+**Backend not connecting?**
+- Verify `.env` file exists in both root and `backend/` directories
+- Check that `GROQ_API_KEY` is set correctly
+
+For more detailed troubleshooting, see `TROUBLESHOOTING.md`.

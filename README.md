@@ -1,22 +1,41 @@
 # Mini Legal Analyst System
 
-A production-ready RAG-based legal document analysis system with self-correction capabilities, built using FastAPI, Streamlit, LangChain, and Llama 3.1 via Groq.
+A production-ready RAG-based legal document analysis system with **premium glassmorphism UI**, self-correction capabilities, and automated workflow. Built using FastAPI, Streamlit, LangChain, and Llama 3.3 via Groq.
 
 ## 🎯 Overview
 
 This system provides comprehensive analysis of legal documents through:
 - **PDF Extraction** with intelligent text cleaning
-- **Vector Search** using FAISS and HuggingFace embeddings
-- **RAG Pipeline** powered by Llama 3.1 (via Groq)
+- **Automated Vector Indexing** using FAISS and HuggingFace embeddings
+- **RAG Pipeline** powered by Llama 3.3 (via Groq)
 - **Self-Correction Agent** with reflection loop for quality assurance
 - **Rule Validation** against 6 key legal document requirements
 - **Structured JSON Reports** with complete analysis results
+- **Premium Dark-Theme Glassmorphism UI** with neon accents and animations
+
+## ✨ New Features
+
+### 🎨 Premium UI/UX
+- **Cinematic gradient hero banner** with pulsing animation
+- **Floating glass navigation sidebar** with blur effects
+- **Neon-accented section headers** with glowing borders
+- **Animated gradient progress bars** with shimmer effects
+- **Glowing PASS/FAIL badges** with pulsing animations
+- **VS Code-style JSON viewer** with syntax highlighting
+- **Glassmorphism cards** with frosted-glass effects
+- **Responsive layouts** with improved spacing
+
+### 🔄 Automated Workflow
+- **Auto-build vector index** after PDF extraction (no manual step)
+- **Simultaneous analysis results** - all three analyses can be open at once
+- **Download JSON buttons** for each analysis type
+- **Streamlined 3-step process**: Upload → Extract → Analyze
 
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────┐
-│  Streamlit UI   │  ← User Interface
+│  Streamlit UI   │  ← Premium Glassmorphism Interface
 └────────┬────────┘
          │
          ▼
@@ -30,7 +49,7 @@ This system provides comprehensive analysis of legal documents through:
 │  • PDF Extractor (pdfplumber)       │
 │  • Preprocessor (LangChain)         │
 │  • Vector Store (FAISS)             │
-│  • RAG Pipeline (Groq + Llama 3.1)  │
+│  • RAG Pipeline (Groq + Llama 3.3)  │
 │  • Self-Correction Agent            │
 │  • Rule Checker                     │
 │  • JSON Builder                     │
@@ -44,7 +63,7 @@ mini-legal-analyst/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI application
-│   │   ├── config.py            # Configuration management
+│   │   ├── config.py            # Configuration (Llama 3.3)
 │   │   ├── schemas.py           # Pydantic models
 │   │   └── api/
 │   │       └── endpoints.py     # API route handlers
@@ -59,7 +78,7 @@ mini-legal-analyst/
 │   └── utils/
 │       └── helpers.py           # Utility functions
 ├── frontend/
-│   └── streamlit_app.py         # Streamlit UI
+│   └── streamlit_app.py         # Premium Glassmorphism UI
 ├── data/
 │   ├── uploads/                 # Uploaded PDFs
 │   ├── vector_store/            # FAISS indices
@@ -67,143 +86,125 @@ mini-legal-analyst/
 ├── .env                         # Environment variables (not in git)
 ├── .env.example                 # Environment template
 ├── requirements.txt             # Python dependencies
+├── start_all.ps1                # Start both services
+├── start_backend.ps1            # Start backend only
+├── start_frontend.ps1           # Start frontend only
+├── stop_all.ps1                 # Stop all services
+├── restart_services.ps1         # Restart services
 └── README.md                    # This file
 ```
 
-## 🚀 Installation
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.8+ (tested on Python 3.13)
 - Groq API key (free tier available at https://console.groq.com)
 
-### Setup Steps
+### One-Command Setup
 
-1. **Clone or navigate to the project directory:**
-   ```bash
-   cd mini-legal-analyst
-   ```
+```powershell
+# Start everything at once
+.\start_all.ps1
+```
 
-2. **Create and activate virtual environment:**
-   ```bash
-   # Windows
-   python -m venv venv
-   .\venv\Scripts\activate
+This will:
+1. Activate virtual environment
+2. Start backend (http://localhost:8000)
+3. Start frontend (http://localhost:8501)
+4. Open UI in your browser
 
-   # Linux/Mac
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+### Manual Setup
 
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment variables:**
-   ```bash
-   # Copy the example file
-   copy .env.example .env  # Windows
-   cp .env.example .env    # Linux/Mac
-
-   # Edit .env and add your Groq API key
-   # GROQ_API_KEY=your_actual_api_key_here
-   ```
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
 
 ## ⚙️ Configuration
 
-The system uses environment variables for configuration. Key settings in `.env`:
+### Environment Variables
+
+Create a `.env` file in the project root:
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-Additional settings can be modified in `backend/app/config.py`:
-- LLM model and parameters
+### Advanced Configuration
+
+Modify `backend/app/config.py` for:
+- LLM model (default: `llama-3.3-70b-versatile`)
 - Chunk size and overlap
 - Retrieval settings
 - Self-correction thresholds
 
 ## 🎮 Usage
 
-### Starting the Backend (FastAPI)
+### Quick Analysis Mode (Recommended)
 
-```bash
-# From project root
-cd mini-legal-analyst
+**New Streamlined Workflow:**
 
-# Use the startup script (recommended)
-.\start_backend.ps1
+1. **Upload PDF** → Choose your legal document
+2. **Extract Text** → Click "Extract Text" button
+3. **Auto Index** → Vector index builds automatically
+4. **Run Analyses** → Click any/all analysis buttons:
+   - 📊 Generate Summary
+   - 📑 Extract Sections
+   - ✅ Check Rules
+5. **View Results** → All results appear in separate glass cards
+6. **Download JSON** → Export each analysis as JSON
 
-# OR manually:
-.\venv\Scripts\activate
-cd backend
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
+**Key Features:**
+- ✅ No manual index building required
+- ✅ All three analyses can be open simultaneously
+- ✅ Download JSON for each analysis type
+- ✅ Results persist when running other analyses
 
-The API will be available at:
-- **API Base:** http://localhost:8000
-- **Interactive Docs:** http://localhost:8000/docs
-- **Health Check:** http://localhost:8000/health
+### Full Report Mode
 
-### Starting the Frontend (Streamlit)
-
-```bash
-# From project root (in a new terminal)
-streamlit run frontend/streamlit_app.py
-```
-
-The UI will open automatically in your browser at http://localhost:8501
-
-### Using the System
-
-#### Option 1: Full Report (Recommended)
-1. Select "Full Report" mode in the sidebar
-2. Upload a PDF file
+1. Select "Full Report" in sidebar
+2. Upload PDF file
 3. Click "Generate Full Report"
-4. Wait for processing (2-5 minutes depending on document size)
-5. View results and download JSON report
-
-#### Option 2: Quick Analysis (Step-by-Step)
-1. Select "Quick Analysis" mode
-2. Upload PDF and extract text
-3. Build vector index
-4. Run individual analyses:
-   - Generate Summary
-   - Extract Sections
-   - Check Rules
+4. Wait 2-5 minutes for complete analysis
+5. View comprehensive results
+6. Download complete JSON report
 
 ## 📡 API Endpoints
 
 ### POST /api/extract
 Extract text from PDF file.
 - **Input:** PDF file (multipart/form-data)
-- **Output:** Extracted text and page count
+- **Output:** `{"text": "...", "page_count": 10}`
 
 ### POST /api/build_index
 Build FAISS vector index from text.
 - **Input:** `{"text": "...", "document_name": "..."}`
-- **Output:** Index metadata
+- **Output:** `{"chunk_count": 50, "status": "success"}`
 
 ### POST /api/summaries
 Generate document summary.
 - **Input:** `{"document_name": "..."}`
-- **Output:** High-level summary
+- **Output:** `{"summary": {"title": "...", "purpose": "...", "key_topics": [...]}}`
 
 ### POST /api/sections
 Extract structured sections (6 categories).
 - **Input:** `{"document_name": "...", "categories": [...]}`
-- **Output:** Extracted sections with confidence scores
+- **Output:** `{"sections": {"definitions": {...}, ...}}`
 
 ### POST /api/rule_checks
 Validate compliance with legal rules.
 - **Input:** `{"document_name": "..."}`
-- **Output:** Rule check results
+- **Output:** `{"rule_checks": [{"rule": "...", "status": "pass", ...}]}`
 
 ### POST /api/full_report
 Execute complete analysis pipeline.
 - **Input:** PDF file (multipart/form-data)
-- **Output:** Complete analysis report
+- **Output:** Complete analysis report with all sections
+
+### GET /health
+Health check endpoint.
+- **Output:** `{"status": "healthy"}`
+
+### GET /docs
+Interactive API documentation (Swagger UI).
 
 ## 🔍 Legal Categories Analyzed
 
@@ -232,28 +233,31 @@ The system checks compliance with 6 standard legal document rules:
 The system includes an intelligent self-correction agent that:
 - Validates extraction completeness
 - Assesses evidence quality
-- Calculates confidence scores
+- Calculates confidence scores (0-100%)
 - Re-queries vector store if needed
 - Iterates up to 2 times per category
 - Ensures high-quality results
 
 ## 📊 Output Format
 
-The system generates structured JSON reports:
+The system generates structured JSON reports with syntax highlighting:
 
 ```json
 {
   "document_name": "example_document",
-  "generated_at": "2025-11-20T23:55:00",
+  "generated_at": "2025-11-21T23:00:00",
   "summary": {
-    "title": "...",
-    "purpose": "...",
-    "key_topics": [...]
+    "title": "Universal Credit Act 2025",
+    "document_type": "Legislation",
+    "purpose": "Establish universal credit system",
+    "key_topics": ["Social Security", "Benefits", "Eligibility"]
   },
   "sections": {
-    "definitions": {...},
-    "eligibility": {...},
-    ...
+    "definitions": {
+      "data": {...},
+      "confidence": {"overall": 95.0},
+      "sources": ["Page 1, Section 2.1"]
+    }
   },
   "rule_checks": {
     "results": [...],
@@ -268,82 +272,68 @@ The system generates structured JSON reports:
 
 ## 🛠️ Technology Stack
 
-- **Backend Framework:** FastAPI
-- **Frontend:** Streamlit
-- **PDF Processing:** pdfplumber
-- **Text Processing:** LangChain
+- **Backend:** FastAPI
+- **Frontend:** Streamlit with custom CSS
+- **PDF:** pdfplumber
+- **Text:** LangChain
 - **Embeddings:** HuggingFace (sentence-transformers)
 - **Vector Store:** FAISS (CPU)
-- **LLM:** Llama 3.1 70B (via Groq API)
-- **Validation:** Pydantic
+- **LLM:** Llama 3.3 70B (Groq API)
+- **Validation:** Pydantic v2
 
-## 🔒 Security Notes
+## 🎨 UI Features
 
-- API key is stored in `.env` file (not committed to git)
-- `.gitignore` prevents sensitive files from being tracked
-- CORS is configured for development (update for production)
-- File uploads are stored temporarily and can be cleaned up
+### Design System
+- **Colors:** Blue (#4a6cf7) → Purple (#8f6bff) → Pink (#ff6b9d)
+- **Background:** Radial gradient dark theme
+- **Cards:** Frosted glass with backdrop blur
+- **Animations:** Pulse, shimmer, glow effects
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
-**Issue:** `ModuleNotFoundError`
-- **Solution:** Ensure virtual environment is activated and dependencies are installed
+**`GROQ_API_KEY not found` or `401 Invalid API Key`**
+1. Check `.env` file exists
+2. Verify API key at https://console.groq.com
+3. Restart backend: `.\restart_services.ps1`
 
-**Issue:** `GROQ_API_KEY not found`
-- **Solution:** Check that `.env` file exists and contains the API key
+**`UnicodeDecodeError` when starting backend**
+- Run `python update_api_key.py` to fix BOM issue
 
-**Issue:** `Vector store not found`
-- **Solution:** Build the index first before running analysis
+**Backend won't start**
+1. Run `.\stop_all.ps1`
+2. Run `.\start_all.ps1`
 
-**Issue:** API timeout on large documents
-- **Solution:** Increase timeout in Streamlit app or use smaller documents
+### Utility Scripts
 
-### Logging
-
-The system logs to console. To increase verbosity, modify `setup_logging("DEBUG")` in `backend/app/main.py`.
+- `test_key.py` - Validate Groq API key
+- `update_api_key.py` - Update `.env` files
+- `verify_env.py` - Check `.env` encoding
 
 ## 📈 Performance
 
-- **PDF Extraction:** ~1-2 seconds per page
-- **Index Building:** ~10-30 seconds for typical documents
-- **RAG Extraction:** ~5-10 seconds per category
-- **Full Report:** ~2-5 minutes for complete analysis
+- **PDF Extraction:** ~1-2 seconds/page
+- **Index Building:** ~10-30 seconds (automatic)
+- **RAG Extraction:** ~5-10 seconds/category
+- **Full Report:** ~2-5 minutes
 
-## 🚀 Deployment
+## 📝 Scripts Reference
 
-### Production Considerations
+| Script | Purpose |
+|--------|---------|
+| `start_all.ps1` | Start both services |
+| `stop_all.ps1` | Stop all processes |
+| `restart_services.ps1` | Restart services |
 
-1. **Environment Variables:** Use proper secrets management
-2. **CORS:** Configure specific allowed origins
-3. **Rate Limiting:** Add rate limiting middleware
-4. **File Storage:** Use cloud storage for uploads
-5. **Vector Store:** Consider persistent storage solution
-6. **Monitoring:** Add logging and monitoring
-7. **Scaling:** Use async workers for concurrent requests
+## 📚 Documentation
 
-### Docker Deployment (Optional)
-
-Create a `Dockerfile` and `docker-compose.yml` for containerized deployment.
-
-## 📝 License
-
-This project is provided as-is for educational and demonstration purposes.
-
-## 👥 Contributing
-
-This is a demonstration project. For production use, consider:
-- Adding comprehensive tests
-- Implementing authentication
-- Adding database for persistent storage
-- Improving error handling
-- Adding monitoring and analytics
-
-## 📧 Support
-
-For issues or questions, please refer to the code documentation and comments.
+- [INSTALL.md](INSTALL.md) - Installation guide
+- [QUICKSTART.md](QUICKSTART.md) - Quick start
+- API Docs: http://localhost:8000/docs
 
 ---
 
 **Built with ⚖️ for legal document analysis**
+
+**Version:** 2.0 - Premium Glassmorphism Edition
