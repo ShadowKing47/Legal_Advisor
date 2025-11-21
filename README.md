@@ -13,7 +13,7 @@ This system provides comprehensive analysis of legal documents through:
 - **Structured JSON Reports** with complete analysis results
 - **Premium Dark-Theme Glassmorphism UI** with neon accents and animations
 
-### 🔄 Automated Workflow
+###  Automated Workflow
 - **Auto-build vector index** after PDF extraction (no manual step)
 - **Simultaneous analysis results** - all three analyses can be open at once
 - **Download JSON buttons** for each analysis type
@@ -317,4 +317,5 @@ The system generates structured JSON reports with syntax highlighting:
 **Built with ⚖️ for legal document analysis**
 
 **Version:** 2.0 - Premium Glassmorphism Edition
+
 
