@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+pydantic>=2.0
+pydantic-settings
+python-dotenv
+python-multipart
+streamlit
+requests
+pdfplumber
+langchain
+langchain-community
+langchain-groq
+faiss-cpu
+sentence-transformers
+tiktoken
+numpy
